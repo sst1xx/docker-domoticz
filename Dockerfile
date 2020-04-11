@@ -13,13 +13,13 @@ RUN pip3 install bluepy
 RUN useradd -m domoticz
 
 # USER domoticz
-RUN mkdir -p ${APP_DIR} 
+RUN mkdir -p ${APP_DIR}/backup 
 WORKDIR ${APP_DIR}
 RUN ["/bin/bash", "-c", "set -o pipefail && wget -qO - https://releases.domoticz.com/releases/release/domoticz_linux_armv7l.tgz | tar xz -C ./"]
 RUN git clone https://github.com/flatsiedatsie/Mi_Flower_mate_plugin ./plugins/Mi_Flower_mate_plugin
 
-VOLUME ${APP_DIR}/backup
+HEALTHCHECK CMD wget http://localhost:8080 || exit 1
+
 ENTRYPOINT ["./domoticz"]
 CMD ["-sslwww", "0"]
 EXPOSE 8080
-

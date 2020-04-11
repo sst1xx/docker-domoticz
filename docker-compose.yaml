@@ -1,0 +1,12 @@
+version: "3"
+services:
+  domoticz:
+    container_name: domoticz
+    build: ./
+    volumes:
+       - backup:/home/domoticz/stable/backup
+    restart: unless-stopped
+    network_mode: "host"
+    privileged: true
+volumes:
+  backup:
