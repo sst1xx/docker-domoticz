@@ -5,6 +5,8 @@ services:
     build: ./
     volumes:
        - backup:/home/domoticz/stable/backup
+    environment:
+       - "TZ=Europe/Minsk"       
     restart: unless-stopped
     network_mode: "host"
     privileged: true
