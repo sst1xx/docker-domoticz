@@ -4,8 +4,8 @@ ENV APP_DIR /home/domoticz/stable
 
 RUN apt-get update && apt-get upgrade -y \
 	&& apt-get install -y \
-	curl unzip wget libudev-dev libcurl4 libusb-0.1 libcurl3-gnutls libpython3-dev \
-    python3-pip libglib2.0-dev git \
+	curl unzip wget libudev-dev libcurl4 libusb-0.1 libcurl3-gnutls libpython3-dev inetutils-ping \
+        python3-pip libglib2.0-dev git \
 	&& rm -rf /var/lib/apt/lists/*
 
 RUN pip3 install bluepy
