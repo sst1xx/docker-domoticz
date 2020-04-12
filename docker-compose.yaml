@@ -4,11 +4,11 @@ services:
     container_name: domoticz
     build: ./
     volumes:
-       - backup:/home/domoticz/stable/backup
+       - backups:/home/domoticz/stable/backups
     environment:
        - "TZ=Europe/Minsk"       
     restart: unless-stopped
     network_mode: "host"
     privileged: true
 volumes:
-  backup:
+  backups:
