@@ -1,1 +1,1 @@
-# docker-domoticz
+# Docker Domoticz Raspberry Pi
